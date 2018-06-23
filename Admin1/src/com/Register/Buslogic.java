@@ -21,6 +21,14 @@ public class Buslogic {
 			System.out.println("No");
 		}
 		
-	}
+
+}
+	
+public boolean checklogin(RegisterModel mdl)
+{
+	DataRegister DR1 = new DataRegister();
+	boolean A = DR1.CheckLoginDB(mdl);
+	return A;
+}
 
 }

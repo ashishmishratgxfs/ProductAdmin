@@ -26,11 +26,12 @@ Expiredate :<input type = "date" name = "DOE" />
 Password : <input type = "password" name = "Password" />
 <p> </p>
 
-<input type = submit />
-
-
+<input type ="submit" value="submit" />
 
 </form>
+<form method = "get" action ="Register">
+<input type ="submit" value="Login" />
 
+</form>
 </body>
 </html>

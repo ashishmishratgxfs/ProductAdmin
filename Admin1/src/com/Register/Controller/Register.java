@@ -32,7 +32,25 @@ public class Register extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String username = request.getParameter("username");
+		if(username != null) {
+			int usrname = Integer.parseInt(username);
+			String password = request.getParameter("password");
+			System.out.println(username);
+			RegisterModel RM1 = new RegisterModel();
+			RM1.setEmpid(usrname);
+			RM1.setPassword(password);
+			Buslogic BL1 = new Buslogic();
+			boolean login =	BL1.checklogin(RM1);
+			if(login) {
+				request.getRequestDispatcher("product.jsp").forward(request, response);
+			}else {
+				request.getRequestDispatcher("Login.jsp").forward(request, response);
+			}
+			
+		}else {
+			request.getRequestDispatcher("Login.jsp").forward(request, response);
+		}
 	}
 
 	/**
